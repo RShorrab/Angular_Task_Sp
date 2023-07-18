@@ -19,17 +19,35 @@ export class ProductsComponent {
   featured: number;
   avaliableCount: number;
   all: number;
-  filter = "All"
+  filter = "All";
   constructor(){
     this.featured = 0;
     this.avaliableCount = 0;
     this.all = this.products.length;
     this.setCounts();
   }
+
   getProducts(): Product[] 
   {
-    return this.products;
+    let filteredProducts!: Product[] 
+    switch (this.filter) {
+      case 'All':
+        filteredProducts = this.products
+        break;
+      case 'Avaliable':
+        filteredProducts = this.products.filter(product => product.isAvailable == true)
+        break;
+      case 'Featured':
+        filteredProducts = this.products.filter(product => product.isFeatured == true)
+        break;
+      default:
+        filteredProducts = []
+        break;
+    }
+
+    return filteredProducts;
   }
+
   private setCounts():void{
     this.products.forEach((product)=>{
       if(product.isFeatured) this.featured++;

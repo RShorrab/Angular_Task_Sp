@@ -18,11 +18,5 @@ export class ProductItemComponent {
         this.productItem = new Product();
     }
 
-    shouldBeViewed(product:Product):boolean{
-        if(this.filter =="All")return true;
-        if(this.filter =="Avaliable" && product.isAvailable) return true;
-        if(this.filter =="Featured" && product.isFeatured) return true;
-        return false;
-      }
 }
 
