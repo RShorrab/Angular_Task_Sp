@@ -1,15 +1,16 @@
-<div class="product-item">
-  <div style="width:30%" *ngFor="let product of products">
-    <div>
-      <img [src]="product.imageProduct" class="product-img">
-  </div>
-  <div class="product-desc">
-      <h2>{{product.nameProduct}}</h2>
-      <span  *ngIf="largerThan100(product)">{{product.priceProduct}}$</span>
-      <h3 class="h3"*ngIf="product.isAvailable" [ngClass]="{'available':product.isAvailable}">Avaliable</h3>
-      <h3 *ngIf="!product.isAvailable" [ngStyle]="{color:product.isAvailable? 'Green': 'Red'}">Not Avaliable</h3>
-  </div>
-  </div>
 
-
+<div class="row">
+  <div class="col-md-3 p-3 " *ngFor="let product of products" [ngStyle]="{'display': shouldBeViewed(product)? 'block': 'none' }" > 
+      <div class="p-2 product" >
+        <img [src]="product.imageProduct" class="img-fluid mb-3">
+        
+        <div class="product-desc">
+            <h4>{{product.nameProduct}}</h4>
+            <!-- <span class="text-muted" [ngStyle]="{'visibility': product.priceProduct>100? 'visible':'hidden'}" >${{product.priceProduct}}</span> -->
+            <span class="text-muted">${{product.priceProduct}}</span>
+            <span class="d-block text-success fw-bold" *ngIf="product.isAvailable" >Avaliable</span>
+            <span class="d-block text-danger fw-bold" *ngIf="!product.isAvailable" >Not Avaliable</span>
+        </div>
+      </div>
   </div>
+</div>

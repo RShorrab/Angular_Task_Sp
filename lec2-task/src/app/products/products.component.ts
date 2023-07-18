@@ -26,7 +26,8 @@ export class ProductsComponent {
     this.all = this.products.length;
     this.setCounts();
   }
-  getProducts(): Product[] {
+  getProducts(): Product[] 
+  {
     return this.products;
   }
   private setCounts():void{
@@ -37,15 +38,15 @@ export class ProductsComponent {
     });
   }
 
-  onFilterChanged(selectedFilter:string){
+  onFilterChanged(selectedFilter:string = "All"){
     console.log('item',selectedFilter)
    this.filter = selectedFilter;
   }
-  shouldBeViewed(product:Product):boolean{
 
-    if(this.filter =="All")return true;
-    if(this.filter =="Avaliable" && product.isAvailable) return true;
-    if(this.filter =="Featured" && product.isFeatured) return true;
-    return false;
-  }
+/*  shouldBeViewed(product:Product):boolean{
+      if(this.filter =="All")return true;
+      if(this.filter =="Avaliable" && product.isAvailable) return true;
+      if(this.filter =="Featured" && product.isFeatured) return true;
+      return false;
+  } */
 }

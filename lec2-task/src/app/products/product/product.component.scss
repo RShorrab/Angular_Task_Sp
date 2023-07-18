@@ -2,19 +2,11 @@
     display: inline-flex;
 
 }*/
-.product-item{
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items:  center;
-}
 
-.available{
-background-color: aqua;
-}
-
-.product-img{
-    object-fit: cover;
-    width: 100%;
+.product
+{
+    //background-color: rgb(247, 244, 241);
+    box-shadow: 0 0 10px rgba(206, 191, 191, 0.434);
 }
 
 .productItem :nth-child(2) span{

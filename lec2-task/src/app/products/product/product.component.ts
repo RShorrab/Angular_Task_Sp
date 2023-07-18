@@ -12,14 +12,17 @@ import {Product} from "../models/productModel";
 export class ProductItemComponent {
     @Input() productItem: Product;
     @Input() products!: Product[];
+    @Input() filter: string = ''
+
     constructor(){
         this.productItem = new Product();
     }
 
-    largerThan100(product:Product){
-      return product.priceProduct>100
-    }
-
-
+    shouldBeViewed(product:Product):boolean{
+        if(this.filter =="All")return true;
+        if(this.filter =="Avaliable" && product.isAvailable) return true;
+        if(this.filter =="Featured" && product.isFeatured) return true;
+        return false;
+      }
 }
 
